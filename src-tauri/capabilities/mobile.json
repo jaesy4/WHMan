@@ -1,0 +1,10 @@
+{
+  "$schema": "../gen/schemas/mobile-schema.json",
+  "identifier": "mobile",
+  "description": "Camera QR scanning for pairing (Android)",
+  "platforms": ["android", "iOS"],
+  "windows": ["main"],
+  "permissions": [
+    "barcode-scanner:default"
+  ]
+}

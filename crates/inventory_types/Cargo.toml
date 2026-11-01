@@ -1,0 +1,9 @@
+[package]
+name = "inventory_types"
+description = "Plain data types shared by the core library, the Tauri app and the Leptos UI (compiles to WASM)."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+serde.workspace = true

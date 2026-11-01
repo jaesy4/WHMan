@@ -1,0 +1,11 @@
+# Builds the Leptos UI (ui/) to WebAssembly for Tauri.
+[build]
+target = "ui/index.html"
+dist = "ui/dist"
+
+[watch]
+ignore = ["./src-tauri"]
+
+[serve]
+port = 1420
+open = false

@@ -1,0 +1,467 @@
+%PDF-1.4
+%ту╧╙
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Producer (inventory_core) /Title (Stock In / Stock Out Transactions) >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 841.89 595.28] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 16652 >>
+stream
+0.450 0.450 0.480 rg
+BT /F2 10.00 Tf 36.00 549.28 Td (Dela Rosa Hardware Ц Main Warehouse) Tj ET
+0.150 0.270 0.420 rg
+BT /F2 16.00 Tf 36.00 527.28 Td (Stock In / Stock Out Transactions) Tj ET
+0.450 0.450 0.480 rg
+BT /F1 9.00 Tf 36.00 512.28 Td (Period: 2026-10-01 to 2026-10-31   |   24 records) Tj ET
+0.450 0.450 0.480 rg
+BT /F1 9.00 Tf 36.00 499.28 Td (Prepared by: Juan Dela Cruz) Tj ET
+0.150 0.270 0.420 RG
+1.20 w 36.00 491.28 m 805.89 491.28 l S
+0.150 0.270 0.420 rg
+36.00 465.28 769.89 18.00 re f
+1.000 1.000 1.000 rg
+BT /F2 8.50 Tf 40.00 471.28 Td (Date) Tj ET
+BT /F2 8.50 Tf 103.07 471.28 Td (Type) Tj ET
+BT /F2 8.50 Tf 134.76 471.28 Td (Reference) Tj ET
+BT /F2 8.50 Tf 211.74 471.28 Td (Item Code) Tj ET
+BT /F2 8.50 Tf 282.81 471.28 Td (Item Name) Tj ET
+BT /F2 8.50 Tf 467.92 471.28 Td (Qty) Tj ET
+BT /F2 8.50 Tf 490.09 471.28 Td (Unit) Tj ET
+BT /F2 8.50 Tf 531.55 471.28 Td (Received From / Issued...) Tj ET
+BT /F2 8.50 Tf 644.07 471.28 Td (Recorded By) Tj ET
+BT /F2 8.50 Tf 715.13 471.28 Td (Remarks) Tj ET
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 454.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 108.74 454.88 Td (IN) Tj ET
+BT /F1 8.50 Tf 134.76 454.88 Td (DR-10000) Tj ET
+BT /F1 8.50 Tf 211.74 454.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 454.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 454.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 454.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 454.88 Td (Holcim Philippines) Tj ET
+BT /F1 8.50 Tf 644.07 454.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 454.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 450.28 m 805.89 450.28 l S
+0.965 0.970 0.975 rg
+36.00 435.28 769.89 15.00 re f
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 439.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 104.02 439.88 Td (OUT) Tj ET
+BT /F1 8.50 Tf 134.76 439.88 Td (RS-0311) Tj ET
+BT /F1 8.50 Tf 211.74 439.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 439.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 439.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 439.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 439.88 Td (Site 3 Ц Mr. Santos) Tj ET
+BT /F1 8.50 Tf 644.07 439.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 439.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 435.28 m 805.89 435.28 l S
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 424.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 108.74 424.88 Td (IN) Tj ET
+BT /F1 8.50 Tf 134.76 424.88 Td (DR-10002) Tj ET
+BT /F1 8.50 Tf 211.74 424.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 424.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 424.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 424.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 424.88 Td (Holcim Philippines) Tj ET
+BT /F1 8.50 Tf 644.07 424.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 424.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 420.28 m 805.89 420.28 l S
+0.965 0.970 0.975 rg
+36.00 405.28 769.89 15.00 re f
+0.600 0.600 0.620 rg
+BT /F1 8.50 Tf 40.00 409.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 102.60 409.88 Td (VOID) Tj ET
+BT /F1 8.50 Tf 134.76 409.88 Td (RS-0311) Tj ET
+BT /F1 8.50 Tf 211.74 409.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 409.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 409.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 409.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 409.88 Td (Site 3 Ц Mr. Santos) Tj ET
+BT /F1 8.50 Tf 644.07 409.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 409.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 405.28 m 805.89 405.28 l S
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 394.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 108.74 394.88 Td (IN) Tj ET
+BT /F1 8.50 Tf 134.76 394.88 Td (DR-10004) Tj ET
+BT /F1 8.50 Tf 211.74 394.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 394.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 394.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 394.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 394.88 Td (Holcim Philippines) Tj ET
+BT /F1 8.50 Tf 644.07 394.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 394.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 390.28 m 805.89 390.28 l S
+0.965 0.970 0.975 rg
+36.00 375.28 769.89 15.00 re f
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 379.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 104.02 379.88 Td (OUT) Tj ET
+BT /F1 8.50 Tf 134.76 379.88 Td (RS-0311) Tj ET
+BT /F1 8.50 Tf 211.74 379.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 379.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 379.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 379.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 379.88 Td (Site 3 Ц Mr. Santos) Tj ET
+BT /F1 8.50 Tf 644.07 379.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 379.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 375.28 m 805.89 375.28 l S
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 364.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 108.74 364.88 Td (IN) Tj ET
+BT /F1 8.50 Tf 134.76 364.88 Td (DR-10006) Tj ET
+BT /F1 8.50 Tf 211.74 364.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 364.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 364.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 364.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 364.88 Td (Holcim Philippines) Tj ET
+BT /F1 8.50 Tf 644.07 364.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 364.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 360.28 m 805.89 360.28 l S
+0.965 0.970 0.975 rg
+36.00 345.28 769.89 15.00 re f
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 349.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 104.02 349.88 Td (OUT) Tj ET
+BT /F1 8.50 Tf 134.76 349.88 Td (RS-0311) Tj ET
+BT /F1 8.50 Tf 211.74 349.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 349.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 349.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 349.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 349.88 Td (Site 3 Ц Mr. Santos) Tj ET
+BT /F1 8.50 Tf 644.07 349.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 349.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 345.28 m 805.89 345.28 l S
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 334.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 108.74 334.88 Td (IN) Tj ET
+BT /F1 8.50 Tf 134.76 334.88 Td (DR-10008) Tj ET
+BT /F1 8.50 Tf 211.74 334.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 334.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 334.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 334.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 334.88 Td (Holcim Philippines) Tj ET
+BT /F1 8.50 Tf 644.07 334.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 334.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 330.28 m 805.89 330.28 l S
+0.965 0.970 0.975 rg
+36.00 315.28 769.89 15.00 re f
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 319.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 104.02 319.88 Td (OUT) Tj ET
+BT /F1 8.50 Tf 134.76 319.88 Td (RS-0311) Tj ET
+BT /F1 8.50 Tf 211.74 319.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 319.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 319.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 319.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 319.88 Td (Site 3 Ц Mr. Santos) Tj ET
+BT /F1 8.50 Tf 644.07 319.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 319.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 315.28 m 805.89 315.28 l S
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 304.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 108.74 304.88 Td (IN) Tj ET
+BT /F1 8.50 Tf 134.76 304.88 Td (DR-10010) Tj ET
+BT /F1 8.50 Tf 211.74 304.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 304.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 304.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 304.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 304.88 Td (Holcim Philippines) Tj ET
+BT /F1 8.50 Tf 644.07 304.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 304.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 300.28 m 805.89 300.28 l S
+0.965 0.970 0.975 rg
+36.00 285.28 769.89 15.00 re f
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 289.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 104.02 289.88 Td (OUT) Tj ET
+BT /F1 8.50 Tf 134.76 289.88 Td (RS-0311) Tj ET
+BT /F1 8.50 Tf 211.74 289.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 289.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 289.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 289.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 289.88 Td (Site 3 Ц Mr. Santos) Tj ET
+BT /F1 8.50 Tf 644.07 289.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 289.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 285.28 m 805.89 285.28 l S
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 274.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 108.74 274.88 Td (IN) Tj ET
+BT /F1 8.50 Tf 134.76 274.88 Td (DR-10012) Tj ET
+BT /F1 8.50 Tf 211.74 274.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 274.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 274.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 274.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 274.88 Td (Holcim Philippines) Tj ET
+BT /F1 8.50 Tf 644.07 274.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 274.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 270.28 m 805.89 270.28 l S
+0.965 0.970 0.975 rg
+36.00 255.28 769.89 15.00 re f
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 259.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 104.02 259.88 Td (OUT) Tj ET
+BT /F1 8.50 Tf 134.76 259.88 Td (RS-0311) Tj ET
+BT /F1 8.50 Tf 211.74 259.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 259.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 259.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 259.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 259.88 Td (Site 3 Ц Mr. Santos) Tj ET
+BT /F1 8.50 Tf 644.07 259.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 259.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 255.28 m 805.89 255.28 l S
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 244.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 108.74 244.88 Td (IN) Tj ET
+BT /F1 8.50 Tf 134.76 244.88 Td (DR-10014) Tj ET
+BT /F1 8.50 Tf 211.74 244.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 244.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 244.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 244.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 244.88 Td (Holcim Philippines) Tj ET
+BT /F1 8.50 Tf 644.07 244.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 244.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 240.28 m 805.89 240.28 l S
+0.965 0.970 0.975 rg
+36.00 225.28 769.89 15.00 re f
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 229.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 104.02 229.88 Td (OUT) Tj ET
+BT /F1 8.50 Tf 134.76 229.88 Td (RS-0311) Tj ET
+BT /F1 8.50 Tf 211.74 229.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 229.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 229.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 229.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 229.88 Td (Site 3 Ц Mr. Santos) Tj ET
+BT /F1 8.50 Tf 644.07 229.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 229.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 225.28 m 805.89 225.28 l S
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 214.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 108.74 214.88 Td (IN) Tj ET
+BT /F1 8.50 Tf 134.76 214.88 Td (DR-10016) Tj ET
+BT /F1 8.50 Tf 211.74 214.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 214.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 214.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 214.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 214.88 Td (Holcim Philippines) Tj ET
+BT /F1 8.50 Tf 644.07 214.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 214.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 210.28 m 805.89 210.28 l S
+0.965 0.970 0.975 rg
+36.00 195.28 769.89 15.00 re f
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 199.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 104.02 199.88 Td (OUT) Tj ET
+BT /F1 8.50 Tf 134.76 199.88 Td (RS-0311) Tj ET
+BT /F1 8.50 Tf 211.74 199.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 199.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 199.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 199.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 199.88 Td (Site 3 Ц Mr. Santos) Tj ET
+BT /F1 8.50 Tf 644.07 199.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 199.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 195.28 m 805.89 195.28 l S
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 184.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 108.74 184.88 Td (IN) Tj ET
+BT /F1 8.50 Tf 134.76 184.88 Td (DR-10018) Tj ET
+BT /F1 8.50 Tf 211.74 184.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 184.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 184.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 184.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 184.88 Td (Holcim Philippines) Tj ET
+BT /F1 8.50 Tf 644.07 184.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 184.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 180.28 m 805.89 180.28 l S
+0.965 0.970 0.975 rg
+36.00 165.28 769.89 15.00 re f
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 169.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 104.02 169.88 Td (OUT) Tj ET
+BT /F1 8.50 Tf 134.76 169.88 Td (RS-0311) Tj ET
+BT /F1 8.50 Tf 211.74 169.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 169.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 169.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 169.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 169.88 Td (Site 3 Ц Mr. Santos) Tj ET
+BT /F1 8.50 Tf 644.07 169.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 169.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 165.28 m 805.89 165.28 l S
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 154.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 108.74 154.88 Td (IN) Tj ET
+BT /F1 8.50 Tf 134.76 154.88 Td (DR-10020) Tj ET
+BT /F1 8.50 Tf 211.74 154.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 154.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 154.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 154.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 154.88 Td (Holcim Philippines) Tj ET
+BT /F1 8.50 Tf 644.07 154.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 154.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 150.28 m 805.89 150.28 l S
+0.965 0.970 0.975 rg
+36.00 135.28 769.89 15.00 re f
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 139.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 104.02 139.88 Td (OUT) Tj ET
+BT /F1 8.50 Tf 134.76 139.88 Td (RS-0311) Tj ET
+BT /F1 8.50 Tf 211.74 139.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 139.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 139.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 139.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 139.88 Td (Site 3 Ц Mr. Santos) Tj ET
+BT /F1 8.50 Tf 644.07 139.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 139.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 135.28 m 805.89 135.28 l S
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 124.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 108.74 124.88 Td (IN) Tj ET
+BT /F1 8.50 Tf 134.76 124.88 Td (DR-10022) Tj ET
+BT /F1 8.50 Tf 211.74 124.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 124.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 124.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 124.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 124.88 Td (Holcim Philippines) Tj ET
+BT /F1 8.50 Tf 644.07 124.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 124.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 120.28 m 805.89 120.28 l S
+0.965 0.970 0.975 rg
+36.00 105.28 769.89 15.00 re f
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 109.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 104.02 109.88 Td (OUT) Tj ET
+BT /F1 8.50 Tf 134.76 109.88 Td (RS-0311) Tj ET
+BT /F1 8.50 Tf 211.74 109.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 109.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 109.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 109.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 109.88 Td (Site 3 Ц Mr. Santos) Tj ET
+BT /F1 8.50 Tf 644.07 109.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 109.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 105.28 m 805.89 105.28 l S
+0.120 0.120 0.140 rg
+BT /F1 8.50 Tf 40.00 94.88 Td (2026-10-05) Tj ET
+BT /F1 8.50 Tf 108.74 94.88 Td (IN) Tj ET
+BT /F1 8.50 Tf 134.76 94.88 Td (DR-10024) Tj ET
+BT /F1 8.50 Tf 211.74 94.88 Td (CEM-001) Tj ET
+BT /F1 8.50 Tf 282.81 94.88 Td (Portland Cement 40kg) Tj ET
+BT /F1 8.50 Tf 472.64 94.88 Td (45) Tj ET
+BT /F1 8.50 Tf 490.09 94.88 Td (bag) Tj ET
+BT /F1 8.50 Tf 531.55 94.88 Td (Holcim Philippines) Tj ET
+BT /F1 8.50 Tf 644.07 94.88 Td (Juan Dela Cruz) Tj ET
+BT /F1 8.50 Tf 715.13 94.88 Td (For slab pouring) Tj ET
+0.820 0.840 0.870 RG
+0.40 w 36.00 90.28 m 805.89 90.28 l S
+0.820 0.840 0.870 RG
+0.50 w 36.00 48.00 m 805.89 48.00 l S
+0.450 0.450 0.480 rg
+BT /F1 7.50 Tf 36.00 36.00 Td (Stock In / Stock Out Transactions  |  Generated 2026-11-01 23:15) Tj ET
+BT /F1 7.50 Tf 767.53 36.00 Td (Page 1 of 2) Tj ET
+
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 841.89 595.28] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 1599 >>
+stream
+0.150 0.270 0.420 rg
+BT /F2 10.00 Tf 36.00 549.28 Td (Stock In / Stock Out Transactions \(continued\)) Tj ET
+0.150 0.270 0.420 rg
+36.00 521.28 769.89 18.00 re f
+1.000 1.000 1.000 rg
+BT /F2 8.50 Tf 40.00 527.28 Td (Date) Tj ET
+BT /F2 8.50 Tf 103.07 527.28 Td (Type) Tj ET
+BT /F2 8.50 Tf 134.76 527.28 Td (Reference) Tj ET
+BT /F2 8.50 Tf 211.74 527.28 Td (Item Code) Tj ET
+BT /F2 8.50 Tf 282.81 527.28 Td (Item Name) Tj ET
+BT /F2 8.50 Tf 467.92 527.28 Td (Qty) Tj ET
+BT /F2 8.50 Tf 490.09 527.28 Td (Unit) Tj ET
+BT /F2 8.50 Tf 531.55 527.28 Td (Received From / Issued...) Tj ET
+BT /F2 8.50 Tf 644.07 527.28 Td (Recorded By) Tj ET
+BT /F2 8.50 Tf 715.13 527.28 Td (Remarks) Tj ET
+0.120 0.120 0.140 rg
+BT /F2 9.00 Tf 36.00 503.28 Td (Prepared by:) Tj ET
+0.300 0.300 0.320 RG
+0.60 w 36.00 473.28 m 268.63 473.28 l S
+0.450 0.450 0.480 rg
+BT /F1 7.00 Tf 98.43 463.28 Td (Signature over printed name / date) Tj ET
+0.120 0.120 0.140 rg
+BT /F2 9.00 Tf 292.63 503.28 Td (Checked by:) Tj ET
+0.300 0.300 0.320 RG
+0.60 w 292.63 473.28 m 525.26 473.28 l S
+0.450 0.450 0.480 rg
+BT /F1 7.00 Tf 355.06 463.28 Td (Signature over printed name / date) Tj ET
+0.120 0.120 0.140 rg
+BT /F2 9.00 Tf 549.26 503.28 Td (Noted by:) Tj ET
+0.300 0.300 0.320 RG
+0.60 w 549.26 473.28 m 781.89 473.28 l S
+0.450 0.450 0.480 rg
+BT /F1 7.00 Tf 611.69 463.28 Td (Signature over printed name / date) Tj ET
+0.820 0.840 0.870 RG
+0.50 w 36.00 48.00 m 805.89 48.00 l S
+0.450 0.450 0.480 rg
+BT /F1 7.50 Tf 36.00 36.00 Td (Stock In / Stock Out Transactions  |  Generated 2026-11-01 23:15) Tj ET
+BT /F1 7.50 Tf 767.53 36.00 Td (Page 2 of 2) Tj ET
+
+endstream
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000127 00000 n 
+0000000224 00000 n 
+0000000326 00000 n 
+0000000417 00000 n 
+0000000559 00000 n 
+0000017264 00000 n 
+0000017406 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R /Info 5 0 R >>
+startxref
+19057
+%%EOF

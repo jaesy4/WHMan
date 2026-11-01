@@ -1,0 +1,17 @@
+[package]
+name = "inventory_ui"
+description = "Leptos (Rust → WebAssembly) user interface, built by Trunk and shown by Tauri."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+inventory_types.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+leptos = { version = "0.8", features = ["csr"] }
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+serde-wasm-bindgen = "0.6"
+js-sys = "0.3"
+console_error_panic_hook = "0.1"
