@@ -81,12 +81,15 @@ jobs:
           version: latest
       - name: Android NDK path
         run: echo "NDK_HOME=$ANDROID_NDK_LATEST_HOME" >> "$GITHUB_ENV"
+      # Android needs the Rust version of the Tauri CLI (Gradle calls it back).
+      - name: Install Tauri CLI
+        run: cargo install tauri-cli --version "^2" --locked
       - name: Generate icons and Android project
         run: |
-          npx --yes @tauri-apps/cli@2 icon app-icon.png
-          if [ ! -d src-tauri/gen/android ]; then npx --yes @tauri-apps/cli@2 android init --ci; fi
+          cargo tauri icon app-icon.png
+          if [ ! -d src-tauri/gen/android ]; then cargo tauri android init --ci; fi
       - name: Build APK
-        run: npx --yes @tauri-apps/cli@2 android build --apk --ci
+        run: cargo tauri android build --apk --ci
       - name: Sign APK
         env:
           KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
