@@ -201,10 +201,10 @@ fn reject_cancel_and_lists() {
     let db = Db::open_in_memory().unwrap();
     let bolt = db.create_item(&item("B-10", "Bolt M10")).unwrap();
     stock_in(&db, &bolt.id, 50.0);
-    let a = user(&db, "a", "engineering", UserRole::Requester);
-    let b = user(&db, "b", "engineering", UserRole::Requester);
-    let head = user(&db, "h", "engineering", UserRole::Head);
-    let solar = user(&db, "s", "solar", UserRole::Requester);
+    let a = user(&db, "alice", "engineering", UserRole::Requester);
+   let b = user(&db, "bob", "engineering", UserRole::Requester);
+   let head = user(&db, "head.eng", "engineering", UserRole::Head);
+   let solar = user(&db, "solar1", "solar", UserRole::Requester);
     let req = |u: &WebUser| {
         db.create_request(u, &RequestInput { purpose: "Job".into(), needed_by: String::new(), lines: vec![line(&bolt.id, 5.0)] })
             .unwrap()
