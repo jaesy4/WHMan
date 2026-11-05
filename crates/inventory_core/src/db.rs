@@ -67,6 +67,68 @@ const MIGRATIONS: &[&str] = &[
         last_sync_at TEXT
     );
     "#,
+    // v2: department requests + web portal logins. These tables live on the
+    // PC hub only (they are not part of phone sync). Issuing a request creates
+    // normal Stock Out records, and those do sync.
+    r#"
+    CREATE TABLE departments (
+        id   TEXT PRIMARY KEY,
+        name TEXT NOT NULL UNIQUE COLLATE NOCASE
+    );
+    INSERT INTO departments (id, name) VALUES ('engineering', 'Engineering'), ('solar', 'Solar Team');
+
+    CREATE TABLE web_users (
+        id            TEXT PRIMARY KEY,
+        username      TEXT NOT NULL UNIQUE COLLATE NOCASE,
+        full_name     TEXT NOT NULL,
+        department_id TEXT NOT NULL REFERENCES departments(id),
+        role          TEXT NOT NULL CHECK (role IN ('requester', 'head')),
+        password      TEXT NOT NULL,              -- pbkdf2$iterations$salt$hash
+        active        INTEGER NOT NULL DEFAULT 1,
+        created_at    INTEGER NOT NULL
+    );
+
+    CREATE TABLE web_sessions (
+        token_hash TEXT PRIMARY KEY,              -- SHA-256 of the token; the token itself is never stored
+        user_id    TEXT NOT NULL REFERENCES web_users(id) ON DELETE CASCADE,
+        expires_at INTEGER NOT NULL
+    );
+
+    CREATE TABLE requests (
+        id            TEXT PRIMARY KEY,
+        number        TEXT NOT NULL UNIQUE,       -- RQ-2026-0001
+        department_id TEXT NOT NULL REFERENCES departments(id),
+        user_id       TEXT NOT NULL DEFAULT '',
+        requested_by  TEXT NOT NULL,
+        purpose       TEXT NOT NULL DEFAULT '',
+        needed_by     TEXT NOT NULL DEFAULT '',
+        status        TEXT NOT NULL CHECK (status IN
+                      ('SUBMITTED', 'APPROVED', 'REJECTED', 'CANCELLED', 'ISSUED', 'RECEIVED')),
+        created_at    INTEGER NOT NULL,
+        approved_by   TEXT NOT NULL DEFAULT '',
+        approved_at   INTEGER,
+        decision_note TEXT NOT NULL DEFAULT '',
+        issued_by     TEXT NOT NULL DEFAULT '',
+        issued_at     INTEGER,
+        received_by   TEXT NOT NULL DEFAULT '',
+        received_at   INTEGER,
+        updated_at    INTEGER NOT NULL
+    );
+    CREATE INDEX idx_req_status ON requests(status, created_at);
+    CREATE INDEX idx_req_dept   ON requests(department_id, created_at);
+
+    CREATE TABLE request_lines (
+        id           TEXT PRIMARY KEY,
+        request_id   TEXT NOT NULL REFERENCES requests(id) ON DELETE CASCADE,
+        line_no      INTEGER NOT NULL,
+        item_id      TEXT NOT NULL,
+        qty_milli    INTEGER NOT NULL CHECK (qty_milli > 0),
+        issued_milli INTEGER NOT NULL DEFAULT 0,
+        movement_id  TEXT NOT NULL DEFAULT '',    -- the Stock Out created when issued
+        remarks      TEXT NOT NULL DEFAULT ''
+    );
+    CREATE INDEX idx_reqline_req ON request_lines(request_id, line_no);
+    "#,
 ];
 
 pub struct Db {

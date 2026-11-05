@@ -284,3 +284,20 @@ summary { cursor: pointer; }
   .picker-row { grid-template-columns: 1fr auto; }
   .picker-row .code { grid-column: 1 / -1; }
 }
+
+/* ---------- department requests / web portal ---------- */
+.chip.active { background: var(--navy); border-color: var(--navy); color: #fff; }
+.badge.info { background: #e6eefa; color: var(--accent); }
+.badge.warn:first-child { margin-left: 0; }
+.request-card .panel-head { align-items: flex-start; }
+.request-card p { margin: 4px 0 8px; }
+.note { background: #f8fafc; border-left: 3px solid var(--accent); padding: 8px 10px; border-radius: 4px; margin-top: 8px; }
+.modal.wide { max-width: 760px; width: 100%; }
+.input.qty-cell { width: 110px; text-align: right; padding: 6px 8px; }
+.url-box { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.url-box code { background: #eef2f7; color: var(--navy); padding: 6px 10px; border-radius: 6px; font-size: .9rem; word-break: break-all; }
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; background: #9ca3af; }
+.dot.on { background: var(--in); }
+.steps-list { margin: 6px 0 0; padding-left: 20px; }
+.steps-list li { margin: 6px 0; }
+.steps-list code { background: #eef2f7; padding: 1px 6px; border-radius: 4px; font-size: .85rem; }

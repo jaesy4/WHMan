@@ -6,18 +6,27 @@
 //! * [`excel`] — import item lists / movements, export reports to `.xlsx`
 //! * [`pdf`] — printable reports and IN/OUT slips (no external PDF library)
 //! * [`sync`] — phone ⇄ desktop sync over local Wi-Fi
+//! * department requests and web-portal logins (`Db::create_request`, `Db::web_login`, ...)
+//! * `portal` — the department web portal server (desktop, feature `server`)
 
 mod db;
 mod error;
 mod items;
 mod movements;
 mod reports;
+mod requests;
+mod web_users;
 
 pub mod excel;
 pub mod pdf;
 pub mod sync;
 
+#[cfg(feature = "server")]
+pub mod portal;
+
 pub use db::Db;
+pub use requests::Actor;
+pub use web_users::MIN_PASSWORD_LEN;
 pub use error::{Error, Result};
 pub use inventory_types as types;
 

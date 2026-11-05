@@ -11,7 +11,9 @@ use pages::home::HomePage;
 use pages::import::ImportPage;
 use pages::inventory::InventoryPage;
 use pages::movement::MovementPage;
+use pages::portal::PortalPage;
 use pages::reports::ReportsPage;
+use pages::requests::RequestsPage;
 use pages::settings::SettingsPage;
 use pages::stock_card::StockCardPage;
 use pages::sync::SyncPage;
@@ -24,9 +26,11 @@ pub enum Page {
     StockIn,
     StockOut,
     Transactions,
+    Requests,
     StockCard,
     Reports,
     Import,
+    Portal,
     Sync,
     Settings,
 }
@@ -39,6 +43,8 @@ impl Page {
             Page::StockIn => "Stock In",
             Page::StockOut => "Stock Out",
             Page::Transactions => "Transactions",
+            Page::Requests => "Dept. Requests",
+            Page::Portal => "Web Portal",
             Page::StockCard => "Stock Card",
             Page::Reports => "Reports",
             Page::Import => "Import Excel",
@@ -53,6 +59,8 @@ impl Page {
             Page::StockIn => "↓",
             Page::StockOut => "↑",
             Page::Transactions => "≡",
+            Page::Requests => "✉",
+            Page::Portal => "◎",
             Page::StockCard => "▦",
             Page::Reports => "⎙",
             Page::Import => "⇪",
@@ -122,18 +130,22 @@ pub fn ctx() -> Ctx {
     expect_context::<Ctx>()
 }
 
-const SIDE: [Page; 10] = [
+const SIDE: [Page; 12] = [
     Page::Home,
     Page::Inventory,
     Page::StockIn,
     Page::StockOut,
     Page::Transactions,
+    Page::Requests,
     Page::StockCard,
     Page::Reports,
     Page::Import,
     Page::Sync,
+    Page::Portal,
     Page::Settings,
 ];
+/// Pages that only make sense on the PC hub (requests live there).
+const HUB_ONLY: [Page; 2] = [Page::Requests, Page::Portal];
 const BOTTOM: [Page; 5] = [Page::Home, Page::Inventory, Page::StockIn, Page::StockOut, Page::Sync];
 
 #[component]
@@ -186,7 +198,13 @@ fn App() -> impl IntoView {
                         </div>
                     </div>
                 </div>
-                <nav class="side-nav">{SIDE.into_iter().map(nav_button).collect_view()}</nav>
+                <nav class="side-nav">
+                    {move || SIDE
+                        .into_iter()
+                        .filter(|p| ctx.device.get().map(|d| d.is_hub).unwrap_or(true) || !HUB_ONLY.contains(p))
+                        .map(nav_button)
+                        .collect_view()}
+                </nav>
                 <div class="device-tag">
                     {move || ctx.device.get().map(|d| format!(
                         "{} · {}", d.device_name, if d.is_hub { "PC hub" } else { "Phone" }
@@ -207,6 +225,8 @@ fn App() -> impl IntoView {
                         Page::StockIn => view! { <MovementPage kind=MovementKind::In/> }.into_any(),
                         Page::StockOut => view! { <MovementPage kind=MovementKind::Out/> }.into_any(),
                         Page::Transactions => view! { <TransactionsPage/> }.into_any(),
+                        Page::Requests => view! { <RequestsPage/> }.into_any(),
+                        Page::Portal => view! { <PortalPage/> }.into_any(),
                         Page::StockCard => view! { <StockCardPage/> }.into_any(),
                         Page::Reports => view! { <ReportsPage/> }.into_any(),
                         Page::Import => view! { <ImportPage/> }.into_any(),

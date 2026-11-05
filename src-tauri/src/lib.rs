@@ -13,12 +13,17 @@ use tauri_plugin_dialog::{DialogExt, FilePath};
 use tauri_plugin_fs::{FsExt, OpenOptions};
 
 #[cfg(desktop)]
+use inventory_core::portal::{self as web_portal, Portal};
+#[cfg(desktop)]
 use inventory_core::sync::server::{self, Hub};
+use inventory_core::Actor;
 
 struct AppState {
     db: Arc<Db>,
     #[cfg(desktop)]
     hub: Arc<Hub>,
+    #[cfg(desktop)]
+    portal: Arc<Portal>,
     pending_import: Mutex<Option<ParsedImport>>,
 }
 
@@ -385,6 +390,82 @@ async fn hub_address() -> CmdResult<String> {
     }
 }
 
+// ---- department requests (web portal)
+
+#[tauri::command(rename_all = "snake_case")]
+async fn list_requests(state: State<'_, AppState>, filter: RequestFilter) -> CmdResult<Vec<ItemRequest>> {
+    state.db.list_requests(&filter).map_err(e)
+}
+
+#[tauri::command(rename_all = "snake_case")]
+async fn approve_request(state: State<'_, AppState>, id: String, note: String) -> CmdResult<ItemRequest> {
+    let who = settings(&state.db).recorded_by;
+    state.db.approve_request(&id, Actor::Warehouse(&who), &note).map_err(e)
+}
+
+#[tauri::command(rename_all = "snake_case")]
+async fn reject_request(state: State<'_, AppState>, id: String, reason: String) -> CmdResult<ItemRequest> {
+    let who = settings(&state.db).recorded_by;
+    state.db.reject_request(&id, Actor::Warehouse(&who), &reason).map_err(e)
+}
+
+#[tauri::command(rename_all = "snake_case")]
+async fn issue_request(state: State<'_, AppState>, input: IssueInput) -> CmdResult<ItemRequest> {
+    state.db.issue_request(&input).map_err(e)
+}
+
+#[tauri::command(rename_all = "snake_case")]
+async fn list_departments(state: State<'_, AppState>) -> CmdResult<Vec<Department>> {
+    state.db.list_departments().map_err(e)
+}
+
+#[tauri::command(rename_all = "snake_case")]
+async fn list_web_users(state: State<'_, AppState>) -> CmdResult<Vec<WebUser>> {
+    state.db.list_web_users().map_err(e)
+}
+
+#[tauri::command(rename_all = "snake_case")]
+async fn save_web_user(state: State<'_, AppState>, id: Option<String>, input: WebUserInput) -> CmdResult<WebUser> {
+    let db = state.db.clone();
+    // Password hashing takes a moment on purpose: keep it off the UI thread.
+    tauri::async_runtime::spawn_blocking(move || db.save_web_user(id.as_deref(), &input))
+        .await
+        .map_err(e)?
+        .map_err(e)
+}
+
+#[tauri::command(rename_all = "snake_case")]
+async fn delete_web_user(state: State<'_, AppState>, id: String) -> CmdResult<()> {
+    state.db.delete_web_user(&id).map_err(e)
+}
+
+#[tauri::command(rename_all = "snake_case")]
+async fn portal_info(state: State<'_, AppState>) -> CmdResult<PortalInfo> {
+    let public_url = state.db.setting("portal_public_url").map_err(e)?.unwrap_or_default();
+    let open_requests = state.db.open_request_count().map_err(e)?;
+    #[cfg(desktop)]
+    {
+        let port = state.portal.port();
+        let lan_url = inventory_core::sync::discovery::local_ip()
+            .map(|ip| format!("http://{ip}:{port}"))
+            .unwrap_or_default();
+        Ok(PortalInfo { running: state.portal.is_running(), port, lan_url, public_url, open_requests })
+    }
+    #[cfg(mobile)]
+    {
+        Ok(PortalInfo { running: false, port: 0, lan_url: String::new(), public_url, open_requests })
+    }
+}
+
+#[tauri::command(rename_all = "snake_case")]
+async fn save_portal_url(state: State<'_, AppState>, url: String) -> CmdResult<()> {
+    let url = url.trim().trim_end_matches('/');
+    if !url.is_empty() && !url.starts_with("https://") && !url.starts_with("http://") {
+        return Err("The link must start with https://".into());
+    }
+    state.db.set_setting("portal_public_url", url).map_err(e)
+}
+
 // ------------------------------------------------------------ entry
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
@@ -412,10 +493,25 @@ pub fn run() {
                 hub
             };
 
+            // Department web portal (put online with Tailscale Funnel).
+            #[cfg(desktop)]
+            let portal = {
+                let portal = Portal::new(db.clone(), web_portal::PORTAL_PORT);
+                let p = portal.clone();
+                tauri::async_runtime::spawn(async move {
+                    if let Err(err) = web_portal::serve(p).await {
+                        eprintln!("[portal] server stopped: {err}");
+                    }
+                });
+                portal
+            };
+
             app.manage(AppState {
                 db,
                 #[cfg(desktop)]
                 hub,
+                #[cfg(desktop)]
+                portal,
                 pending_import: Mutex::new(None),
             });
             Ok(())
@@ -446,6 +542,16 @@ pub fn run() {
             list_peers,
             remove_peer,
             hub_address,
+            list_requests,
+            approve_request,
+            reject_request,
+            issue_request,
+            list_departments,
+            list_web_users,
+            save_web_user,
+            delete_web_user,
+            portal_info,
+            save_portal_url,
         ])
         .run(tauri::generate_context!())
         .expect("error while running the application");

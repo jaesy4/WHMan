@@ -3,6 +3,8 @@
 An inventory app for the warehouse man: **Stock In, Stock Out and balances**. There are no prices or Total Value.
 It runs as a **Windows `.exe`** and an **Android `.apk`** from one Rust codebase. The phone and the PC sync over local Wi-Fi, with no internet or cloud server.
 
+Departments (**Engineering** and **Solar Team**) request items through a **web portal** served by the PC app. They open it in any browser, on iPhone, Android or a PC, with nothing to install. It can be put online with Tailscale Funnel ([section 7](#7-department-requests-web-portal)).
+
 ```
 inventory_system/
 ├── Cargo.toml                  Workspace
@@ -18,6 +20,9 @@ inventory_system/
 │       ├── src/excel.rs        Excel import (preview → confirm) and export
 │       ├── src/pdf/            PDF reports and IN/OUT slips (built-in engine)
 │       ├── src/sync/           LAN sync: server (PC), client (phone), discovery
+│       ├── src/requests.rs     Department requests: submit → approve → issue → received
+│       ├── src/web_users.rs    Departments, portal logins (PBKDF2 passwords, sessions)
+│       ├── src/portal/         Web portal server + the web app (index.html)
 │       └── tests/              Integration tests
 ├── src-tauri/                  Tauri v2 app (Windows + Android)
 │   ├── src/lib.rs              Commands the UI calls
@@ -43,7 +48,7 @@ inventory_system/
 | **PDF** | A small built-in engine with no external library. Reports include signature lines (Prepared / Checked / Noted by). |
 | **Sync** | The PC is the hub and runs an HTTP server inside the app. The phone pairs by scanning a QR code. Every request is signed with HMAC-SHA256, so the secret is never sent over the network. Sync is incremental: only changes since the last sync are sent. If two devices edit the same item, the latest edit wins. A void always wins. |
 
-Ports used on the PC: **TCP 47810** (sync) and **UDP 47811** (finding the PC on the network).
+Ports used on the PC: **TCP 47810** (sync), **UDP 47811** (finding the PC on the network) and **TCP 47812** (department web portal).
 
 ---
 
@@ -219,6 +224,55 @@ To run the app on a phone connected by USB during development: `cargo tauri andr
    - If the PC gets a new IP address, the phone finds it automatically.
 
 **Backup:** copy `inventory.db` from `%APPDATA%\com.warehouse.inventory\`.
+
+---
+
+## 7. Department requests (web portal)
+
+Engineering and Solar Team request items from the warehouse on a website served by the PC app.
+
+### Request steps
+
+| Step | Who | Where |
+|---|---|---|
+| 1. **Submitted** | Requester picks items, quantities, purpose and "needed by" date | Web portal |
+| 2. **Approved** or **Rejected** | Department head (the warehouse can also do it) | Web portal / PC → *Dept. Requests* |
+| 3. **Issued** | Warehouse enters the quantity actually released, which can be less than requested. Each item becomes a **Stock Out** with the request number (e.g. `RQ-2026-0007`) as reference, so balances, stock cards and reports update automatically. | PC → *Dept. Requests* → *Issue items* |
+| 4. **Received** | The department confirms it got the items | Web portal |
+
+A requester can cancel their own request, and a head can cancel any of their department's requests, until it is issued. A head's own requests are approved automatically. Stock is never reserved: the balance only changes when the warehouse issues.
+
+### Set up accounts
+
+On the PC, open **Web Portal** → **+ Add user**, and add one account per person with their department and role (*Requester* or *Department Head*). Give each person their username and password. They can change the password themselves after logging in.
+
+### Put it online with Tailscale Funnel (free, no domain needed)
+
+1. Install Tailscale on the warehouse PC from [tailscale.com/download](https://tailscale.com/download) and sign in.
+2. In the [Tailscale admin console](https://login.tailscale.com/admin/dns), turn on **MagicDNS** and **HTTPS Certificates**.
+3. In **Command Prompt (Administrator)**, run:
+   ```
+   tailscale funnel --bg 47812
+   ```
+   The first time, it may show a link asking you to allow Funnel for your tailnet. Open it, approve, and run the command again.
+4. It prints a link like `https://warehouse-pc.tail1234.ts.net`. Paste it in **Web Portal → Online link** and send it to the departments.
+5. On a phone, open the link, then tap **Share → Add to Home Screen** (iPhone) or **⋮ → Add to Home screen** (Android) to get an app icon.
+
+Turn the online link off with `tailscale funnel reset`.
+
+What goes online:
+
+* **Only the portal (port 47812) is published.** Phone sync (47810) stays on your local Wi-Fi.
+* **The PC must be on and the app open.** Otherwise the portal shows "The warehouse PC app is not running right now."
+* **On the same Wi-Fi, people can skip Funnel** and use the local link shown on the Web Portal screen (`http://<PC-IP>:47812`). This needs a Windows Firewall rule that allows TCP 47812 on Private networks.
+* **Security:**
+  * HTTPS comes from Tailscale.
+  * Passwords are stored as PBKDF2-SHA256 hashes, and only hashes of login tokens are kept.
+  * 5 wrong passwords lock that username for 10 minutes.
+  * Each department sees only its own requests.
+  * Changing a password or disabling an account logs that person out everywhere.
+
+Requests and portal accounts live in the PC's database only. They are not synced to the phone app, but the Stock Out records created when issuing do sync.
 
 ---
 

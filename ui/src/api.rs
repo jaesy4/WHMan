@@ -114,6 +114,39 @@ pub async fn hub_address() -> Result<String, String> {
     call("hub_address", &none()).await
 }
 
+// ---- department requests (web portal)
+
+pub async fn list_requests(filter: &RequestFilter) -> Result<Vec<ItemRequest>, String> {
+    call("list_requests", &json!({ "filter": filter })).await
+}
+pub async fn approve_request(id: &str, note: &str) -> Result<ItemRequest, String> {
+    call("approve_request", &json!({ "id": id, "note": note })).await
+}
+pub async fn reject_request(id: &str, reason: &str) -> Result<ItemRequest, String> {
+    call("reject_request", &json!({ "id": id, "reason": reason })).await
+}
+pub async fn issue_request(input: &IssueInput) -> Result<ItemRequest, String> {
+    call("issue_request", &json!({ "input": input })).await
+}
+pub async fn list_departments() -> Result<Vec<Department>, String> {
+    call("list_departments", &none()).await
+}
+pub async fn list_web_users() -> Result<Vec<WebUser>, String> {
+    call("list_web_users", &none()).await
+}
+pub async fn save_web_user(id: Option<String>, input: &WebUserInput) -> Result<WebUser, String> {
+    call("save_web_user", &json!({ "id": id, "input": input })).await
+}
+pub async fn delete_web_user(id: &str) -> Result<(), String> {
+    call_unit("delete_web_user", &json!({ "id": id })).await
+}
+pub async fn portal_info() -> Result<PortalInfo, String> {
+    call("portal_info", &none()).await
+}
+pub async fn save_portal_url(url: &str) -> Result<(), String> {
+    call_unit("save_portal_url", &json!({ "url": url })).await
+}
+
 #[derive(Deserialize)]
 struct ScanResult {
     content: String,

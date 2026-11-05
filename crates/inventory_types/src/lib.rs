@@ -280,3 +280,213 @@ pub struct ReportRequest {
     pub kind: Option<MovementKind>,
     pub low_only: bool,
 }
+
+// ------------------------------------------------- department requests
+
+/// A department that can request items from the warehouse
+/// (e.g. "Engineering", "Solar Team").
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct Department {
+    pub id: String,
+    pub name: String,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub enum UserRole {
+    /// Can create requests for their department.
+    Requester,
+    /// Can create requests and approve / reject their department's requests.
+    Head,
+}
+
+impl UserRole {
+    pub fn as_str(self) -> &'static str {
+        match self {
+            UserRole::Requester => "requester",
+            UserRole::Head => "head",
+        }
+    }
+    pub fn parse(s: &str) -> Option<Self> {
+        match s.trim().to_ascii_lowercase().as_str() {
+            "requester" => Some(UserRole::Requester),
+            "head" => Some(UserRole::Head),
+            _ => None,
+        }
+    }
+    pub fn label(self) -> &'static str {
+        match self {
+            UserRole::Requester => "Requester",
+            UserRole::Head => "Department Head",
+        }
+    }
+}
+
+/// A login for the department web portal.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct WebUser {
+    pub id: String,
+    pub username: String,
+    pub full_name: String,
+    pub department_id: String,
+    pub department_name: String,
+    pub role: UserRole,
+    pub active: bool,
+}
+
+/// Create / edit form for a web user. `password` empty on edit = keep it.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct WebUserInput {
+    pub username: String,
+    pub full_name: String,
+    pub department_id: String,
+    pub role: UserRole,
+    pub password: String,
+    pub active: bool,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub enum RequestStatus {
+    /// Sent by the requester, waiting for the department head.
+    Submitted,
+    /// Approved, waiting for the warehouse to issue.
+    Approved,
+    Rejected,
+    /// Cancelled by the requester before it was issued.
+    Cancelled,
+    /// Warehouse released the items (Stock Out records were created).
+    Issued,
+    /// Requester confirmed they received the items.
+    Received,
+}
+
+impl RequestStatus {
+    pub fn as_str(self) -> &'static str {
+        match self {
+            RequestStatus::Submitted => "SUBMITTED",
+            RequestStatus::Approved => "APPROVED",
+            RequestStatus::Rejected => "REJECTED",
+            RequestStatus::Cancelled => "CANCELLED",
+            RequestStatus::Issued => "ISSUED",
+            RequestStatus::Received => "RECEIVED",
+        }
+    }
+    pub fn parse(s: &str) -> Option<Self> {
+        match s.trim().to_ascii_uppercase().as_str() {
+            "SUBMITTED" => Some(RequestStatus::Submitted),
+            "APPROVED" => Some(RequestStatus::Approved),
+            "REJECTED" => Some(RequestStatus::Rejected),
+            "CANCELLED" => Some(RequestStatus::Cancelled),
+            "ISSUED" => Some(RequestStatus::Issued),
+            "RECEIVED" => Some(RequestStatus::Received),
+            _ => None,
+        }
+    }
+    pub fn label(self) -> &'static str {
+        match self {
+            RequestStatus::Submitted => "Waiting approval",
+            RequestStatus::Approved => "Approved",
+            RequestStatus::Rejected => "Rejected",
+            RequestStatus::Cancelled => "Cancelled",
+            RequestStatus::Issued => "Issued",
+            RequestStatus::Received => "Received",
+        }
+    }
+    /// Still needs action from someone.
+    pub fn is_open(self) -> bool {
+        matches!(self, RequestStatus::Submitted | RequestStatus::Approved)
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct RequestLine {
+    pub id: String,
+    pub item_id: String,
+    pub item_code: String,
+    pub item_name: String,
+    pub unit: String,
+    pub qty_requested: f64,
+    /// Filled in when issued (may be less than requested).
+    pub qty_issued: f64,
+    pub remarks: String,
+    /// Current warehouse balance of the item (for display).
+    pub balance: f64,
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct ItemRequest {
+    pub id: String,
+    /// Human number, e.g. "RQ-2026-0007".
+    pub number: String,
+    pub department_id: String,
+    pub department_name: String,
+    pub requested_by: String,
+    pub purpose: String,
+    /// `YYYY-MM-DD` or empty.
+    pub needed_by: String,
+    pub status: RequestStatus,
+    /// "YYYY-MM-DD HH:MM" (PC local time)
+    pub created_at: String,
+    pub approved_by: String,
+    pub approved_at: String,
+    /// Reason for rejecting / cancelling, or a note from the approver.
+    pub decision_note: String,
+    pub issued_by: String,
+    pub issued_at: String,
+    pub received_by: String,
+    pub received_at: String,
+    pub lines: Vec<RequestLine>,
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct RequestLineInput {
+    pub item_id: String,
+    pub qty: f64,
+    pub remarks: String,
+}
+
+/// What a requester sends from the web portal.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct RequestInput {
+    pub purpose: String,
+    pub needed_by: String,
+    pub lines: Vec<RequestLineInput>,
+}
+
+#[derive(Debug, Clone, Default, PartialEq, Serialize, Deserialize)]
+pub struct RequestFilter {
+    pub status: Option<RequestStatus>,
+    pub department_id: Option<String>,
+    /// Only Submitted / Approved.
+    pub open_only: bool,
+    pub search: Option<String>,
+    pub limit: Option<u32>,
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct IssueLineInput {
+    pub line_id: String,
+    pub qty: f64,
+}
+
+/// Warehouse releases an approved request.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct IssueInput {
+    pub request_id: String,
+    pub lines: Vec<IssueLineInput>,
+    /// `YYYY-MM-DD`
+    pub date: String,
+    pub issued_by: String,
+    pub remarks: String,
+}
+
+/// Status of the department web portal, shown on the PC.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct PortalInfo {
+    pub running: bool,
+    pub port: u16,
+    /// e.g. "http://192.168.1.10:47812" (same Wi-Fi only)
+    pub lan_url: String,
+    /// The Tailscale Funnel address entered in Settings, if any.
+    pub public_url: String,
+    pub open_requests: u32,
+}
